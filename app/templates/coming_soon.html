@@ -1,0 +1,14 @@
+{% extends "base.html" %}
+
+{% block title %}{{ title }}{% endblock %}
+
+{% block content %}
+<section class="coming-soon">
+  <div class="cs-card">
+    <div class="cs-icon">🚧</div>
+    <h1>{{ title }}</h1>
+    <p class="cs-desc">{{ desc }}</p>
+    <a class="cs-back" href="{{ url_for('rankings') }}">← 返回世界排名</a>
+  </div>
+</section>
+{% endblock %}

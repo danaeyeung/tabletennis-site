@@ -1,0 +1,168 @@
+{% extends "base.html" %}
+
+{% block title %}赛事日历{% endblock %}
+
+{% block content %}
+<section class="events-page">
+  <div class="page-head">
+    <h1>赛事日历</h1>
+    <div class="meta-line">
+      <span class="badge">{{ meta.source if meta else 'ITTF / WTT' }}</span>
+      {% if meta.generated_at %}<span class="muted">生成于 {{ meta.generated_at }}</span>{% endif %}
+    </div>
+    <p class="note">全年重要赛事一览：大满贯、冠军赛、总决赛、球星挑战赛、世界杯、世锦赛、奥运等。点击「查看赛程」可看该赛事逐日对阵。</p>
+  </div>
+
+  <div class="filter-bar" id="filterBar">
+    <div class="filter-group">
+      <label>年份</label>
+      <select id="fYear"></select>
+    </div>
+    <div class="filter-group">
+      <label>级别</label>
+      <select id="fTier">
+        <option value="">全部级别</option>
+        <option value="smash">大满贯</option>
+        <option value="finals">总决赛</option>
+        <option value="champions">冠军赛</option>
+        <option value="star">球星挑战赛</option>
+        <option value="contender">挑战赛</option>
+        <option value="feeder">支线赛</option>
+        <option value="world_champ">世锦赛</option>
+        <option value="world_cup">世界杯</option>
+        <option value="olympic">奥运会</option>
+        <option value="asian">亚洲赛事</option>
+        <option value="youth">青少年赛</option>
+        <option value="other">其他</option>
+      </select>
+    </div>
+    <div class="filter-group">
+      <label>状态</label>
+      <select id="fStatus">
+        <option value="">全部</option>
+        <option value="ongoing">进行中</option>
+        <option value="upcoming">即将开始</option>
+        <option value="past">已结束</option>
+      </select>
+    </div>
+    <div class="filter-group grow" style="flex-direction:row;align-items:flex-end;gap:14px">
+      <label style="display:flex;align-items:center;gap:6px;cursor:pointer">
+        <input type="checkbox" id="fImportant" checked /> 仅重要赛事
+      </label>
+      <span class="muted" id="resultCount"></span>
+    </div>
+  </div>
+
+  <div id="loading" class="loading">正在加载赛事数据 …</div>
+  <div id="eventsContainer"></div>
+</section>
+
+<script>
+  const ORG_MAP = {{ org_map|tojson }};
+  const META = {{ meta|tojson }};
+  const TIER_COLOR = {
+    smash: "#e23744", finals: "#ff6a00", champions: "#f59e0b",
+    star: "#2563eb", world_champ: "#c2185b", world_cup: "#d32f2f",
+    olympic: "#e23744", asian: "#0d9488", contender: "#64748b",
+    feeder: "#94a3b8", youth: "#7c3aed", other: "#9aa3af"
+  };
+  const STATUS_LABEL = { ongoing: "进行中", upcoming: "即将开始", past: "已结束" };
+  const STATUS_COLOR = { ongoing: "#16a34a", upcoming: "#ff6a00", past: "#9aa3af" };
+
+  let ALL = [];
+  const $ = (id) => document.getElementById(id);
+
+  function flagImg(org) {
+    const m = ORG_MAP[org];
+    if (m && m.iso2) return '<img class="flag" src="/static/flags/' + m.iso2 + '.svg" alt="' + (m.cn||org) + '" onerror="this.style.display=\'none\'"/>';
+    return '';
+  }
+  function isoFlag(code) {
+    if (!code) return '';
+    return '<img class="flag" src="/static/flags/' + code + '.svg" alt="' + code + '" onerror="this.style.display=\'none\'"/>';
+  }
+  function orgCn(org) { const m = ORG_MAP[org]; return (m && m.cn) ? m.cn : org; }
+  function tierBadge(e) {
+    const c = TIER_COLOR[e.tier_key] || "#9aa3af";
+    return '<span class="tier-badge" style="background:' + c + '">' + (e.tier_cn || "赛事") + '</span>';
+  }
+  function statusBadge(e) {
+    const c = STATUS_COLOR[e.status] || "#9aa3af";
+    return '<span class="status-badge" style="color:' + c + ';border-color:' + c + '">' + (STATUS_LABEL[e.status] || "") + '</span>';
+  }
+  function monthLabel(dateStr) {
+    if (!dateStr) return "未定月份";
+    const p = dateStr.split("-");
+    return p[0] + "年" + parseInt(p[1], 10) + "月";
+  }
+
+  function applyFilters() {
+    const y = $("fYear").value;
+    const tier = $("fTier").value;
+    const st = $("fStatus").value;
+    const imp = $("fImportant").checked;
+    let list = ALL.filter(e => {
+      if (y && String(e.year) !== y) return false;
+      if (tier && e.tier_key !== tier) return false;
+      if (st && e.status !== st) return false;
+      if (imp && !e.is_important) return false;
+      return true;
+    });
+    list.sort((a,b)=> (a.start_date||"").localeCompare(b.start_date||""));
+    $("resultCount").textContent = "共 " + list.length + " 项";
+    render(list);
+  }
+
+  function render(list) {
+    const box = $("eventsContainer");
+    box.innerHTML = "";
+    if (!list.length) { box.innerHTML = '<p class="muted">没有符合条件的赛事。</p>'; return; }
+    // 按月分组
+    const groups = {};
+    list.forEach(e => { const k = monthLabel(e.start_date); (groups[k] = groups[k] || []).push(e); });
+    const keys = Object.keys(groups).sort();
+    keys.forEach(k => {
+      const h = document.createElement("div");
+      h.className = "month-head"; h.textContent = k;
+      box.appendChild(h);
+      const grid = document.createElement("div");
+      grid.className = "event-grid";
+      groups[k].forEach(e => grid.appendChild(eventCard(e)));
+      box.appendChild(grid);
+    });
+  }
+
+  function eventCard(e) {
+    const card = document.createElement("div");
+    card.className = "event-card";
+    const nameCn = e.name_cn || e.name;
+    const host = (e.city ? (e.city + " · ") : "") + (e.country_cn || "");
+    const discs = (e.disciplines || []).slice(0, 6)
+      .map(d => '<span class="disc-chip">' + d + '</span>').join("");
+    card.innerHTML =
+      '<div class="ec-top">' + tierBadge(e) + statusBadge(e) + '</div>' +
+      '<div class="ec-name">' + nameCn + '</div>' +
+      '<div class="ec-en">' + (e.name_cn ? e.name : "") + '</div>' +
+      '<div class="ec-meta">' +
+        (e.start_date ? ('<span>📅 ' + e.start_date + (e.end_date ? (" ~ " + e.end_date) : "") + '</span>') : '') +
+        (host ? ('<span>' + isoFlag(e.country_code) + host + '</span>') : '') +
+      '</div>' +
+      (discs ? '<div class="ec-discs">' + discs + '</div>' : '') +
+      '<a class="ec-link" href="/schedule?event_id=' + e.event_id + '">查看赛程 →</a>';
+    return card;
+  }
+
+  function buildUI(data) {
+    ALL = data.events || [];
+    const years = [...new Set(ALL.map(e => e.year).filter(Boolean))].sort().reverse();
+    years.forEach(y => { const o = document.createElement("option"); o.value = y; o.textContent = y + " 年"; $("fYear").appendChild(o); });
+    if (years.length) $("fYear").value = years[0];
+    ["fYear","fTier","fStatus","fImportant"].forEach(id => $(id).addEventListener("change", applyFilters));
+    $("loading").style.display = "none";
+    applyFilters();
+  }
+
+  fetch('/api/events').then(r => r.json()).then(buildUI)
+    .catch(err => { $("loading").textContent = "数据加载失败：" + err; });
+</script>
+{% endblock %}

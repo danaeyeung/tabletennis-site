@@ -1,0 +1,15 @@
+# WorkBuddy 项目数据（不提交）
+.workbuddy/
+
+# Python
+__pycache__/
+*.py[cod]
+*.egg-info/
+.venv/
+venv/
+
+# 系统 / 临时
+.DS_Store
+Thumbs.db
+*.log
+_check.html

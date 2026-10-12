@@ -1,0 +1,187 @@
+{% extends "base.html" %}
+
+{% block title %}每日赛程{% endblock %}
+
+{% block content %}
+<section class="schedule-page">
+  <div class="page-head">
+    <h1>每日赛程</h1>
+    <div class="meta-line">
+      <span class="badge">{{ meta.source if meta else 'ITTF / WTT' }}</span>
+      {% if meta.today %}<span class="muted">今日 {{ meta.today }}</span>{% endif %}
+    </div>
+    <p class="note">选择赛事查看逐日对阵安排。标注「进行中」的赛事为当前正在举办；若暂无进行中赛事，可查看即将开始或最近结束的赛事。</p>
+  </div>
+
+  <div class="sch-controls">
+    <div class="filter-group grow">
+      <label>选择赛事</label>
+      <select id="eventSel"></select>
+    </div>
+    <div id="eventStatus" class="sch-status"></div>
+  </div>
+
+  <div id="loading" class="loading" style="display:none">正在加载赛程 …</div>
+
+  <div id="dateTabs" class="date-tabs"></div>
+  <div id="dayMeta" class="day-meta"></div>
+  <div id="matchList" class="sch-list"></div>
+</section>
+
+<script>
+  const ORG_MAP = {{ org_map|tojson }};
+  const META = {{ meta|tojson }};
+  const STATUS_LABEL = { ongoing: "进行中", upcoming: "即将开始", past: "已结束" };
+  const STATUS_COLOR = { ongoing: "#16a34a", upcoming: "#ff6a00", past: "#9aa3af" };
+
+  let EVENTS = [];
+  let SCHEDULE = null;
+  let currentDay = "";
+  const $ = (id) => document.getElementById(id);
+
+  function flagImg(org) {
+    const m = ORG_MAP[org];
+    if (m && m.iso2) return '<img class="flag" src="/static/flags/' + m.iso2 + '.svg" alt="' + (m.cn||org) + '" onerror="this.style.display=\'none\'"/>';
+    return '';
+  }
+  function orgCn(org) { const m = ORG_MAP[org]; return (m && m.cn) ? m.cn : org; }
+  function playerCell(p, isWin) {
+    const cn = p.name_cn || "";
+    const en = p.name_en || "";
+    const main = cn || en;
+    return '<div class="sp ' + (isWin ? 'win':'') + '">' + flagImg(p.org) +
+      '<span class="sp-name">' + main + '</span>' +
+      (isWin ? '<span class="win-tag">胜</span>' : '') +
+      '</div>';
+  }
+  function hhmm(dt) {
+    if (!dt) return "";
+    const m = dt.match(/(\d{2}):(\d{2})/);
+    return m ? (m[1] + ":" + m[2]) : "";
+  }
+
+  function pickDefault() {
+    const ongoing = EVENTS.filter(e => e.status === "ongoing").sort((a,b)=>(a.start_date||"").localeCompare(b.start_date||""));
+    if (ongoing.length) return ongoing[0].event_id;
+    const up = EVENTS.filter(e => e.status === "upcoming").sort((a,b)=>(a.start_date||"").localeCompare(b.start_date||""));
+    if (up.length) return up[0].event_id;
+    const past = EVENTS.filter(e => e.status === "past" && e.matches_count > 0)
+                      .sort((a,b)=>(b.start_date||"").localeCompare(a.start_date||""));
+    if (past.length) return past[0].event_id;
+    return EVENTS.length ? EVENTS[0].event_id : "";
+  }
+
+  function buildEventOptions() {
+    const sel = $("eventSel");
+    const groups = {
+      ongoing: { label: "进行中", items: [] },
+      upcoming: { label: "即将开始", items: [] },
+      past: { label: "已结束", items: [] },
+    };
+    EVENTS.forEach(e => {
+      if (groups[e.status]) groups[e.status].items.push(e);
+    });
+    groups.ongoing.items.sort((a,b)=>(a.start_date||"").localeCompare(b.start_date||""));
+    groups.upcoming.items.sort((a,b)=>(a.start_date||"").localeCompare(b.start_date||""));
+    groups.past.items.sort((a,b)=>(b.start_date||"").localeCompare(a.start_date||""));
+    Object.keys(groups).forEach(k => {
+      if (!groups[k].items.length) return;
+      const og = document.createElement("optgroup");
+      og.label = groups[k].label;
+      groups[k].items.forEach(e => {
+        const o = document.createElement("option");
+        o.value = e.event_id;
+        const d = e.start_date ? ("（" + e.start_date + "）") : "";
+        o.textContent = (e.name_cn || e.name) + d;
+        og.appendChild(o);
+      });
+      sel.appendChild(og);
+    });
+  }
+
+  function loadSchedule(eventId) {
+    if (!eventId) return;
+    $("loading").style.display = "block";
+    $("dateTabs").innerHTML = ""; $("matchList").innerHTML = ""; $("dayMeta").innerHTML = "";
+    fetch('/api/schedule?event_id=' + encodeURIComponent(eventId))
+      .then(r => r.json()).then(data => {
+        $("loading").style.display = "none";
+        SCHEDULE = data;
+        if (!data.days || !data.days.length) {
+          $("matchList").innerHTML = '<p class="muted">该赛事暂无对阵数据（可能尚未开始或未抓取到结果）。</p>';
+        }
+        renderEventStatus(data);
+        renderDateTabs(data);
+        if (data.days && data.days.length) {
+          currentDay = data.days[0].date;
+          renderDay(currentDay);
+        }
+      })
+      .catch(err => { $("loading").style.display = "none"; $("matchList").innerHTML = '<p class="muted">加载失败：' + err + '</p>'; });
+  }
+
+  function renderEventStatus(data) {
+    const st = STATUS_LABEL[data.status || ""] || "";
+    const col = STATUS_COLOR[data.status || ""] || "#9aa3af";
+    $("eventStatus").innerHTML = (data.event_name_cn || data.event_name ? ('<span class="ev-cn">' + (data.event_name_cn||data.event_name) + '</span>') : '') +
+      (st ? ('<span class="status-badge" style="color:' + col + ';border-color:' + col + '">' + st + '</span>') : '') +
+      (data.start_date ? ('<span class="muted">' + data.start_date + (data.end_date ? (" ~ " + data.end_date) : "") + '</span>') : '') +
+      (data.source === "live" ? '<span class="muted">（实时数据）</span>' : '');
+  }
+
+  function renderDateTabs(data) {
+    const tabs = $("dateTabs");
+    tabs.innerHTML = "";
+    data.days.forEach(d => {
+      const b = document.createElement("button");
+      b.className = "date-tab";
+      const dparts = d.date.split("-");
+      const label = dparts.length === 3 ? (dparts[1] + "/" + dparts[2]) : d.date;
+      b.innerHTML = '<span class="dt-date">' + label + '</span><span class="dt-count">' + d.matches.length + '</span>';
+      b.addEventListener("click", () => { currentDay = d.date; renderDay(d.date); refreshTabs(); });
+      b.dataset.date = d.date;
+      tabs.appendChild(b);
+    });
+    refreshTabs();
+  }
+  function refreshTabs() {
+    document.querySelectorAll(".date-tab").forEach(b => {
+      b.classList.toggle("active", b.dataset.date === currentDay);
+    });
+  }
+
+  function renderDay(date) {
+    const day = SCHEDULE.days.find(d => d.date === date);
+    const list = $("matchList");
+    list.innerHTML = "";
+    if (!day) return;
+    $("dayMeta").textContent = date + " ｜ " + day.matches.length + " 场";
+    day.matches.forEach(m => {
+      const aWin = m.winner_side === "a", bWin = m.winner_side === "b";
+      const row = document.createElement("div");
+      row.className = "sch-row";
+      row.innerHTML =
+        '<div class="sch-time">' + hhmm(m.date) + '</div>' +
+        '<div class="sch-info"><div class="sch-sub">' + (m.sub_event||"") + '</div><div class="sch-round">' + (m.round||"") + '</div></div>' +
+        '<div class="sch-players">' +
+          playerCell(m.player_a, aWin) +
+          '<div class="sp-score">' + m.games_a + ' : ' + m.games_b + '</div>' +
+          playerCell(m.player_b, bWin) +
+        '</div>' +
+        '<div class="sch-table">' + (m.table ? ("球台 " + m.table) : (m.venue||"")) + '</div>';
+      list.appendChild(row);
+    });
+  }
+
+  function init() {
+    buildEventOptions();
+    const def = pickDefault();
+    if (def) $("eventSel").value = def;
+    $("eventSel").addEventListener("change", () => loadSchedule($("eventSel").value));
+    loadSchedule($("eventSel").value);
+  }
+
+  fetch('/api/events').then(r => r.json()).then(d => { EVENTS = d.events || []; init(); })
+    .catch(err => { $("matchList").innerHTML = '<p class="muted">赛事列表加载失败：' + err + '</p>'; });
+</script>
+{% endblock %}

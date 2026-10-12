@@ -1,0 +1,72 @@
+{% extends "base.html" %}
+
+{% block title %}世界排名{% endblock %}
+
+{% block content %}
+<section class="ranking-page">
+  <div class="page-head">
+    <h1>世界排名</h1>
+    <div class="meta-line">
+      <span class="badge">{{ data.meta.source }}</span>
+      <span class="muted">更新于 {{ data.meta.updated }} ｜ 第 {{ data.meta.week }} 周</span>
+    </div>
+    <p class="note">{{ data.meta.note }}</p>
+  </div>
+
+  <div class="tabs" role="tablist">
+    {% for key, cat in data.categories.items() %}
+    <button class="tab-btn {{ 'active' if loop.first }}" data-tab="tab-{{ key }}">{{ cat.label }}</button>
+    {% endfor %}
+  </div>
+
+  {% for key, cat in data.categories.items() %}
+  <div class="tab-panel {{ 'active' if loop.first }}" id="tab-{{ key }}">
+    <div class="table-wrap">
+      <table class="rank-table">
+        <thead>
+          <tr>
+            <th class="col-rank">排名</th>
+            <th class="col-player">选手</th>
+            <th class="col-assoc">协会</th>
+            <th class="col-points">积分</th>
+            <th class="col-move">升降</th>
+          </tr>
+        </thead>
+        <tbody>
+          {% for p in cat.players %}
+          <tr class="row-{{ 'top1' if p.rank == 1 }}{{ 'top3' if p.rank <= 3 and p.rank != 1 }}">
+            <td class="col-rank">
+              <span class="rank-badge rank-{{ p.rank }}">{{ p.rank }}</span>
+            </td>
+            <td class="col-player">
+              <div class="player">
+                <span class="player-cn">{{ p.name_cn if p.name_cn else p.name_en }}</span>
+                {% if p.name_cn and p.name_cn != p.name_en %}<span class="player-en">{{ p.name_en }}</span>{% endif %}
+              </div>
+            </td>
+            <td class="col-assoc">
+              <span class="assoc">
+                {% if p.iso2 %}<img class="flag" src="{{ url_for('static', filename='flags/' ~ p.iso2 ~ '.svg') }}" alt="{{ p.assoc_cn }}" />{% endif %}
+                <span class="assoc-cn">{{ p.assoc_cn }}</span>
+              </span>
+            </td>
+            <td class="col-points"><span class="points">{{ p.points }}</span></td>
+            <td class="col-move">
+              {% if p.move > 0 %}
+                <span class="move up">▲ {{ p.move }}</span>
+              {% elif p.move < 0 %}
+                <span class="move down">▼ {{ p.move|abs }}</span>
+              {% else %}
+                <span class="move steady">—</span>
+              {% endif %}
+            </td>
+          </tr>
+          {% endfor %}
+        </tbody>
+      </table>
+    </div>
+    <p class="panel-foot muted">共 {{ cat.players|length }} 位选手 ｜ {{ cat.label_en }}</p>
+  </div>
+  {% endfor %}
+</section>
+{% endblock %}

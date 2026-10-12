@@ -1,0 +1,2025 @@
+{
+  "meta": {
+    "title": "乒乓球世界排名",
+    "updated": "2026-10-05",
+    "week": 41,
+    "source": "ITTF（国际乒联）第 41 周世界排名",
+    "note": "数据抓取自 ITTF/WTT 官方排名接口，积分为过去 12 个月八站最高积分之和。"
+  },
+  "categories": {
+    "men": {
+      "key": "men",
+      "label": "男子单打",
+      "label_en": "Men's Singles",
+      "players": [
+        {
+          "rank": 1,
+          "name_cn": "",
+          "name_en": "Sora Matsushima",
+          "code": "JPN",
+          "assoc_cn": "日本",
+          "iso2": "jp",
+          "points": 6930,
+          "move": 2
+        },
+        {
+          "rank": 2,
+          "name_cn": "",
+          "name_en": "Felix Lebrun",
+          "code": "FRA",
+          "assoc_cn": "法国",
+          "iso2": "fr",
+          "points": 6379,
+          "move": 0
+        },
+        {
+          "rank": 3,
+          "name_cn": "",
+          "name_en": "Tomokazu Harimoto",
+          "code": "JPN",
+          "assoc_cn": "日本",
+          "iso2": "jp",
+          "points": 6363,
+          "move": 1
+        },
+        {
+          "rank": 4,
+          "name_cn": "王楚钦",
+          "name_en": "Wang Chuqin",
+          "code": "CHN",
+          "assoc_cn": "中国",
+          "iso2": "cn",
+          "points": 6157,
+          "move": -3
+        },
+        {
+          "rank": 5,
+          "name_cn": "",
+          "name_en": "Truls Moregard",
+          "code": "SWE",
+          "assoc_cn": "瑞典",
+          "iso2": "se",
+          "points": 5805,
+          "move": 0
+        },
+        {
+          "rank": 6,
+          "name_cn": "林昀儒",
+          "name_en": "Lin Yun-ju",
+          "code": "TPE",
+          "assoc_cn": "中国台北",
+          "iso2": "",
+          "points": 4405,
+          "move": 0
+        },
+        {
+          "rank": 7,
+          "name_cn": "",
+          "name_en": "Hugo Calderano",
+          "code": "BRA",
+          "assoc_cn": "巴西",
+          "iso2": "br",
+          "points": 4240,
+          "move": 0
+        },
+        {
+          "rank": 8,
+          "name_cn": "",
+          "name_en": "Alexis Lebrun",
+          "code": "FRA",
+          "assoc_cn": "法国",
+          "iso2": "fr",
+          "points": 3720,
+          "move": 1
+        },
+        {
+          "rank": 9,
+          "name_cn": "林诗栋",
+          "name_en": "Lin Shidong",
+          "code": "CHN",
+          "assoc_cn": "中国",
+          "iso2": "cn",
+          "points": 3642,
+          "move": -1
+        },
+        {
+          "rank": 10,
+          "name_cn": "",
+          "name_en": "Dang Qiu",
+          "code": "GER",
+          "assoc_cn": "德国",
+          "iso2": "de",
+          "points": 3450,
+          "move": 0
+        },
+        {
+          "rank": 11,
+          "name_cn": "",
+          "name_en": "Jang Woojin",
+          "code": "KOR",
+          "assoc_cn": "韩国",
+          "iso2": "kr",
+          "points": 3181,
+          "move": 0
+        },
+        {
+          "rank": 12,
+          "name_cn": "",
+          "name_en": "Darko Jorgic",
+          "code": "SLO",
+          "assoc_cn": "斯洛文尼亚",
+          "iso2": "si",
+          "points": 2930,
+          "move": 0
+        },
+        {
+          "rank": 13,
+          "name_cn": "",
+          "name_en": "Shunsuke Togami",
+          "code": "JPN",
+          "assoc_cn": "日本",
+          "iso2": "jp",
+          "points": 2538,
+          "move": 0
+        },
+        {
+          "rank": 14,
+          "name_cn": "",
+          "name_en": "Anders Lind",
+          "code": "DEN",
+          "assoc_cn": "丹麦",
+          "iso2": "dk",
+          "points": 2497,
+          "move": 0
+        },
+        {
+          "rank": 15,
+          "name_cn": "温瑞博",
+          "name_en": "Wen Ruibo",
+          "code": "CHN",
+          "assoc_cn": "中国",
+          "iso2": "cn",
+          "points": 2435,
+          "move": 0
+        },
+        {
+          "rank": 16,
+          "name_cn": "",
+          "name_en": "Vladimir Sidorenko",
+          "code": "RUS",
+          "assoc_cn": "俄罗斯",
+          "iso2": "ru",
+          "points": 2020,
+          "move": 1
+        },
+        {
+          "rank": 17,
+          "name_cn": "周启豪",
+          "name_en": "Zhou Qihao",
+          "code": "CHN",
+          "assoc_cn": "中国",
+          "iso2": "cn",
+          "points": 2020,
+          "move": -1
+        },
+        {
+          "rank": 18,
+          "name_cn": "",
+          "name_en": "Hiroto Shinozuka",
+          "code": "JPN",
+          "assoc_cn": "日本",
+          "iso2": "jp",
+          "points": 2020,
+          "move": 0
+        },
+        {
+          "rank": 19,
+          "name_cn": "",
+          "name_en": "Dimitrij Ovtcharov",
+          "code": "GER",
+          "assoc_cn": "德国",
+          "iso2": "de",
+          "points": 1930,
+          "move": 1
+        },
+        {
+          "rank": 20,
+          "name_cn": "",
+          "name_en": "Oh Junsung",
+          "code": "KOR",
+          "assoc_cn": "韩国",
+          "iso2": "kr",
+          "points": 1867,
+          "move": 3
+        },
+        {
+          "rank": 21,
+          "name_cn": "",
+          "name_en": "Thibault Poret",
+          "code": "FRA",
+          "assoc_cn": "法国",
+          "iso2": "fr",
+          "points": 1865,
+          "move": 0
+        },
+        {
+          "rank": 22,
+          "name_cn": "",
+          "name_en": "Patrick Franziska",
+          "code": "GER",
+          "assoc_cn": "德国",
+          "iso2": "de",
+          "points": 1835,
+          "move": 2
+        },
+        {
+          "rank": 23,
+          "name_cn": "",
+          "name_en": "Flavien Coton",
+          "code": "FRA",
+          "assoc_cn": "法国",
+          "iso2": "fr",
+          "points": 1819,
+          "move": -4
+        },
+        {
+          "rank": 24,
+          "name_cn": "",
+          "name_en": "Kanak Jha",
+          "code": "USA",
+          "assoc_cn": "美国",
+          "iso2": "us",
+          "points": 1730,
+          "move": 1
+        },
+        {
+          "rank": 25,
+          "name_cn": "",
+          "name_en": "Omar Assar",
+          "code": "EGY",
+          "assoc_cn": "埃及",
+          "iso2": "eg",
+          "points": 1534,
+          "move": 2
+        },
+        {
+          "rank": 26,
+          "name_cn": "陈垣宇",
+          "name_en": "Chen Yuanyu",
+          "code": "CHN",
+          "assoc_cn": "中国",
+          "iso2": "cn",
+          "points": 1500,
+          "move": 2
+        },
+        {
+          "rank": 27,
+          "name_cn": "",
+          "name_en": "Elias Ranefur",
+          "code": "SWE",
+          "assoc_cn": "瑞典",
+          "iso2": "se",
+          "points": 1467,
+          "move": 2
+        },
+        {
+          "rank": 28,
+          "name_cn": "",
+          "name_en": "Simon Gauzy",
+          "code": "FRA",
+          "assoc_cn": "法国",
+          "iso2": "fr",
+          "points": 1395,
+          "move": 2
+        },
+        {
+          "rank": 29,
+          "name_cn": "",
+          "name_en": "Anton Kallberg",
+          "code": "SWE",
+          "assoc_cn": "瑞典",
+          "iso2": "se",
+          "points": 1388,
+          "move": 2
+        },
+        {
+          "rank": 30,
+          "name_cn": "",
+          "name_en": "Tomislav Pucar",
+          "code": "CRO",
+          "assoc_cn": "克罗地亚",
+          "iso2": "hr",
+          "points": 1369,
+          "move": 2
+        },
+        {
+          "rank": 31,
+          "name_cn": "",
+          "name_en": "Yukiya Uda",
+          "code": "JPN",
+          "assoc_cn": "日本",
+          "iso2": "jp",
+          "points": 1355,
+          "move": -5
+        },
+        {
+          "rank": 32,
+          "name_cn": "",
+          "name_en": "Joao Geraldo",
+          "code": "POR",
+          "assoc_cn": "葡萄牙",
+          "iso2": "pt",
+          "points": 1262,
+          "move": 2
+        },
+        {
+          "rank": 33,
+          "name_cn": "",
+          "name_en": "Lim Jonghoon",
+          "code": "KOR",
+          "assoc_cn": "韩国",
+          "iso2": "kr",
+          "points": 1220,
+          "move": 2
+        },
+        {
+          "rank": 34,
+          "name_cn": "向鹏",
+          "name_en": "Xiang Peng",
+          "code": "CHN",
+          "assoc_cn": "中国",
+          "iso2": "cn",
+          "points": 1205,
+          "move": -12
+        },
+        {
+          "rank": 35,
+          "name_cn": "",
+          "name_en": "Benedikt Duda",
+          "code": "GER",
+          "assoc_cn": "德国",
+          "iso2": "de",
+          "points": 1167,
+          "move": 2
+        },
+        {
+          "rank": 36,
+          "name_cn": "梁靖崑",
+          "name_en": "Liang Jingkun",
+          "code": "CHN",
+          "assoc_cn": "中国",
+          "iso2": "cn",
+          "points": 1123,
+          "move": -3
+        },
+        {
+          "rank": 37,
+          "name_cn": "",
+          "name_en": "An Jaehyun",
+          "code": "KOR",
+          "assoc_cn": "韩国",
+          "iso2": "kr",
+          "points": 1063,
+          "move": -1
+        },
+        {
+          "rank": 38,
+          "name_cn": "",
+          "name_en": "Wong Chun Ting",
+          "code": "HKG",
+          "assoc_cn": "中国香港",
+          "iso2": "",
+          "points": 905,
+          "move": 0
+        },
+        {
+          "rank": 39,
+          "name_cn": "郭冠宏",
+          "name_en": "Kuo Guan-hong",
+          "code": "TPE",
+          "assoc_cn": "中国台北",
+          "iso2": "",
+          "points": 868,
+          "move": 0
+        },
+        {
+          "rank": 40,
+          "name_cn": "冯翊新",
+          "name_en": "Feng Yi-hsin",
+          "code": "TPE",
+          "assoc_cn": "中国台北",
+          "iso2": "",
+          "points": 855,
+          "move": 1
+        },
+        {
+          "rank": 41,
+          "name_cn": "",
+          "name_en": "Manush Shah",
+          "code": "IND",
+          "assoc_cn": "印度",
+          "iso2": "in",
+          "points": 801,
+          "move": 2
+        },
+        {
+          "rank": 42,
+          "name_cn": "",
+          "name_en": "Maharu Yoshimura",
+          "code": "JPN",
+          "assoc_cn": "日本",
+          "iso2": "jp",
+          "points": 774,
+          "move": 2
+        },
+        {
+          "rank": 43,
+          "name_cn": "",
+          "name_en": "Tom Jarvis",
+          "code": "ENG",
+          "assoc_cn": "英格兰",
+          "iso2": "gb-eng",
+          "points": 733,
+          "move": 3
+        },
+        {
+          "rank": 44,
+          "name_cn": "",
+          "name_en": "Kristian Karlsson",
+          "code": "SWE",
+          "assoc_cn": "瑞典",
+          "iso2": "se",
+          "points": 730,
+          "move": -4
+        },
+        {
+          "rank": 45,
+          "name_cn": "",
+          "name_en": "Lubomir Jancarik",
+          "code": "CZE",
+          "assoc_cn": "捷克",
+          "iso2": "cz",
+          "points": 728,
+          "move": 4
+        },
+        {
+          "rank": 46,
+          "name_cn": "",
+          "name_en": "Jonathan Groth",
+          "code": "DEN",
+          "assoc_cn": "丹麦",
+          "iso2": "dk",
+          "points": 713,
+          "move": -4
+        },
+        {
+          "rank": 47,
+          "name_cn": "",
+          "name_en": "Finn Luu",
+          "code": "AUS",
+          "assoc_cn": "澳大利亚",
+          "iso2": "au",
+          "points": 698,
+          "move": 5
+        },
+        {
+          "rank": 48,
+          "name_cn": "",
+          "name_en": "Park Ganghyeon",
+          "code": "KOR",
+          "assoc_cn": "韩国",
+          "iso2": "kr",
+          "points": 685,
+          "move": 5
+        },
+        {
+          "rank": 49,
+          "name_cn": "",
+          "name_en": "Kirill Gerassimenko",
+          "code": "KAZ",
+          "assoc_cn": "哈萨克斯坦",
+          "iso2": "kz",
+          "points": 673,
+          "move": 1
+        },
+        {
+          "rank": 50,
+          "name_cn": "",
+          "name_en": "Manav Thakkar",
+          "code": "IND",
+          "assoc_cn": "印度",
+          "iso2": "in",
+          "points": 666,
+          "move": -2
+        },
+        {
+          "rank": 51,
+          "name_cn": "",
+          "name_en": "Nicholas Lum",
+          "code": "AUS",
+          "assoc_cn": "澳大利亚",
+          "iso2": "au",
+          "points": 663,
+          "move": -4
+        },
+        {
+          "rank": 52,
+          "name_cn": "",
+          "name_en": "Csaba Andras",
+          "code": "HUN",
+          "assoc_cn": "匈牙利",
+          "iso2": "hu",
+          "points": 656,
+          "move": 3
+        },
+        {
+          "rank": 53,
+          "name_cn": "",
+          "name_en": "Joe Seyfried",
+          "code": "FRA",
+          "assoc_cn": "法国",
+          "iso2": "fr",
+          "points": 655,
+          "move": 3
+        },
+        {
+          "rank": 54,
+          "name_cn": "",
+          "name_en": "Milosz Redzimski",
+          "code": "POL",
+          "assoc_cn": "波兰",
+          "iso2": "pl",
+          "points": 638,
+          "move": -3
+        },
+        {
+          "rank": 55,
+          "name_cn": "",
+          "name_en": "Alvaro Robles",
+          "code": "ESP",
+          "assoc_cn": "西班牙",
+          "iso2": "es",
+          "points": 630,
+          "move": 2
+        },
+        {
+          "rank": 56,
+          "name_cn": "",
+          "name_en": "Cedric Nuytinck",
+          "code": "BEL",
+          "assoc_cn": "比利时",
+          "iso2": "be",
+          "points": 625,
+          "move": 3
+        },
+        {
+          "rank": 57,
+          "name_cn": "",
+          "name_en": "Ryoichi Yoshiyama",
+          "code": "JPN",
+          "assoc_cn": "日本",
+          "iso2": "jp",
+          "points": 620,
+          "move": 3
+        },
+        {
+          "rank": 58,
+          "name_cn": "",
+          "name_en": "Andre Bertelsmeier",
+          "code": "GER",
+          "assoc_cn": "德国",
+          "iso2": "de",
+          "points": 620,
+          "move": 3
+        },
+        {
+          "rank": 59,
+          "name_cn": "",
+          "name_en": "Wim Verdonschot",
+          "code": "GER",
+          "assoc_cn": "德国",
+          "iso2": "de",
+          "points": 585,
+          "move": 3
+        },
+        {
+          "rank": 60,
+          "name_cn": "",
+          "name_en": "Andrej Gacina",
+          "code": "CRO",
+          "assoc_cn": "克罗地亚",
+          "iso2": "hr",
+          "points": 578,
+          "move": 3
+        },
+        {
+          "rank": 61,
+          "name_cn": "",
+          "name_en": "Ryuusei Kawakami",
+          "code": "JPN",
+          "assoc_cn": "日本",
+          "iso2": "jp",
+          "points": 575,
+          "move": 3
+        },
+        {
+          "rank": 62,
+          "name_cn": "黄友政",
+          "name_en": "Huang Youzheng",
+          "code": "CHN",
+          "assoc_cn": "中国",
+          "iso2": "cn",
+          "points": 535,
+          "move": 3
+        },
+        {
+          "rank": 63,
+          "name_cn": "",
+          "name_en": "Adrien Rassenfosse",
+          "code": "BEL",
+          "assoc_cn": "比利时",
+          "iso2": "be",
+          "points": 534,
+          "move": 4
+        },
+        {
+          "rank": 64,
+          "name_cn": "",
+          "name_en": "Evgeny Tikhonov",
+          "code": "RUS",
+          "assoc_cn": "俄罗斯",
+          "iso2": "ru",
+          "points": 523,
+          "move": 4
+        },
+        {
+          "rank": 65,
+          "name_cn": "",
+          "name_en": "Ankur Bhattacharjee",
+          "code": "IND",
+          "assoc_cn": "印度",
+          "iso2": "in",
+          "points": 510,
+          "move": 1
+        },
+        {
+          "rank": 66,
+          "name_cn": "",
+          "name_en": "Mehdi Bouloussa",
+          "code": "ALG",
+          "assoc_cn": "阿尔及利亚",
+          "iso2": "dz",
+          "points": 505,
+          "move": 3
+        },
+        {
+          "rank": 67,
+          "name_cn": "李天阳",
+          "name_en": "Li Tianyang",
+          "code": "CHN",
+          "assoc_cn": "中国",
+          "iso2": "cn",
+          "points": 485,
+          "move": 4
+        },
+        {
+          "rank": 68,
+          "name_cn": "",
+          "name_en": "Youssef Abdelaziz",
+          "code": "EGY",
+          "assoc_cn": "埃及",
+          "iso2": "eg",
+          "points": 483,
+          "move": 2
+        },
+        {
+          "rank": 69,
+          "name_cn": "",
+          "name_en": "Marcos Freitas",
+          "code": "POR",
+          "assoc_cn": "葡萄牙",
+          "iso2": "pt",
+          "points": 482,
+          "move": 3
+        },
+        {
+          "rank": 70,
+          "name_cn": "",
+          "name_en": "Eduard Ionescu",
+          "code": "ROU",
+          "assoc_cn": "罗马尼亚",
+          "iso2": "ro",
+          "points": 476,
+          "move": -16
+        },
+        {
+          "rank": 71,
+          "name_cn": "",
+          "name_en": "Deni Kozul",
+          "code": "SLO",
+          "assoc_cn": "斯洛文尼亚",
+          "iso2": "si",
+          "points": 461,
+          "move": 2
+        },
+        {
+          "rank": 72,
+          "name_cn": "",
+          "name_en": "Yuta Tanaka",
+          "code": "JPN",
+          "assoc_cn": "日本",
+          "iso2": "jp",
+          "points": 450,
+          "move": 3
+        },
+        {
+          "rank": 73,
+          "name_cn": "",
+          "name_en": "Iulian Chirita",
+          "code": "ROU",
+          "assoc_cn": "罗马尼亚",
+          "iso2": "ro",
+          "points": 448,
+          "move": 1
+        },
+        {
+          "rank": 74,
+          "name_cn": "",
+          "name_en": "Chan Baldwin",
+          "code": "HKG",
+          "assoc_cn": "中国香港",
+          "iso2": "",
+          "points": 444,
+          "move": 2
+        },
+        {
+          "rank": 75,
+          "name_cn": "",
+          "name_en": "Vladislav Ursu",
+          "code": "MDA",
+          "assoc_cn": "摩尔多瓦",
+          "iso2": "md",
+          "points": 437,
+          "move": 2
+        },
+        {
+          "rank": 76,
+          "name_cn": "",
+          "name_en": "Park Gyuhyeon",
+          "code": "KOR",
+          "assoc_cn": "韩国",
+          "iso2": "kr",
+          "points": 433,
+          "move": 2
+        },
+        {
+          "rank": 77,
+          "name_cn": "",
+          "name_en": "Nikita Artemenko",
+          "code": "RUS",
+          "assoc_cn": "俄罗斯",
+          "iso2": "ru",
+          "points": 430,
+          "move": 2
+        },
+        {
+          "rank": 78,
+          "name_cn": "",
+          "name_en": "Leo De Nodrest",
+          "code": "FRA",
+          "assoc_cn": "法国",
+          "iso2": "fr",
+          "points": 415,
+          "move": 3
+        },
+        {
+          "rank": 79,
+          "name_cn": "",
+          "name_en": "Hwan Bae",
+          "code": "AUS",
+          "assoc_cn": "澳大利亚",
+          "iso2": "au",
+          "points": 411,
+          "move": 1
+        },
+        {
+          "rank": 80,
+          "name_cn": "",
+          "name_en": "Kazuki Hamada",
+          "code": "JPN",
+          "assoc_cn": "日本",
+          "iso2": "jp",
+          "points": 408,
+          "move": -22
+        },
+        {
+          "rank": 81,
+          "name_cn": "",
+          "name_en": "Sathiyan Gnanasekaran",
+          "code": "IND",
+          "assoc_cn": "印度",
+          "iso2": "in",
+          "points": 408,
+          "move": 2
+        },
+        {
+          "rank": 82,
+          "name_cn": "",
+          "name_en": "Quek Izaac",
+          "code": "SGP",
+          "assoc_cn": "新加坡",
+          "iso2": "sg",
+          "points": 402,
+          "move": 2
+        },
+        {
+          "rank": 83,
+          "name_cn": "",
+          "name_en": "Darius Movileanu",
+          "code": "ROU",
+          "assoc_cn": "罗马尼亚",
+          "iso2": "ro",
+          "points": 400,
+          "move": 2
+        },
+        {
+          "rank": 84,
+          "name_cn": "",
+          "name_en": "Lubomir Pistej",
+          "code": "SVK",
+          "assoc_cn": "斯洛伐克",
+          "iso2": "sk",
+          "points": 389,
+          "move": 2
+        },
+        {
+          "rank": 85,
+          "name_cn": "",
+          "name_en": "Yuto Kizukuri",
+          "code": "JPN",
+          "assoc_cn": "日本",
+          "iso2": "jp",
+          "points": 381,
+          "move": 2
+        },
+        {
+          "rank": 86,
+          "name_cn": "",
+          "name_en": "Tiago Apolonia",
+          "code": "POR",
+          "assoc_cn": "葡萄牙",
+          "iso2": "pt",
+          "points": 377,
+          "move": -4
+        },
+        {
+          "rank": 87,
+          "name_cn": "",
+          "name_en": "John Oyebode",
+          "code": "ITA",
+          "assoc_cn": "意大利",
+          "iso2": "it",
+          "points": 371,
+          "move": 1
+        },
+        {
+          "rank": 88,
+          "name_cn": "",
+          "name_en": "Guilherme Teodoro",
+          "code": "BRA",
+          "assoc_cn": "巴西",
+          "iso2": "br",
+          "points": 369,
+          "move": 2
+        },
+        {
+          "rank": 89,
+          "name_cn": "",
+          "name_en": "Horacio Cifuentes",
+          "code": "ARG",
+          "assoc_cn": "阿根廷",
+          "iso2": "ar",
+          "points": 363,
+          "move": 0
+        },
+        {
+          "rank": 90,
+          "name_cn": "陈俊菘",
+          "name_en": "Chen Junsong",
+          "code": "CHN",
+          "assoc_cn": "中国",
+          "iso2": "cn",
+          "points": 360,
+          "move": -45
+        },
+        {
+          "rank": 91,
+          "name_cn": "",
+          "name_en": "Ivor Ban",
+          "code": "CRO",
+          "assoc_cn": "克罗地亚",
+          "iso2": "hr",
+          "points": 356,
+          "move": 1
+        },
+        {
+          "rank": 92,
+          "name_cn": "",
+          "name_en": "Lilian Bardet",
+          "code": "FRA",
+          "assoc_cn": "法国",
+          "iso2": "fr",
+          "points": 355,
+          "move": -1
+        },
+        {
+          "rank": 93,
+          "name_cn": "",
+          "name_en": "Jules Rolland",
+          "code": "FRA",
+          "assoc_cn": "法国",
+          "iso2": "fr",
+          "points": 355,
+          "move": 0
+        },
+        {
+          "rank": 94,
+          "name_cn": "",
+          "name_en": "Kay Stumper",
+          "code": "GER",
+          "assoc_cn": "德国",
+          "iso2": "de",
+          "points": 344,
+          "move": 0
+        },
+        {
+          "rank": 95,
+          "name_cn": "张佑安",
+          "name_en": "Chang Yu-an",
+          "code": "TPE",
+          "assoc_cn": "中国台北",
+          "iso2": "",
+          "points": 338,
+          "move": 0
+        },
+        {
+          "rank": 96,
+          "name_cn": "",
+          "name_en": "Kwon Hyuk",
+          "code": "KOR",
+          "assoc_cn": "韩国",
+          "iso2": "kr",
+          "points": 338,
+          "move": 0
+        },
+        {
+          "rank": 97,
+          "name_cn": "",
+          "name_en": "Mattias Karlsson",
+          "code": "SWE",
+          "assoc_cn": "瑞典",
+          "iso2": "se",
+          "points": 330,
+          "move": 0
+        },
+        {
+          "rank": 98,
+          "name_cn": "",
+          "name_en": "Lam Siu Hang",
+          "code": "HKG",
+          "assoc_cn": "中国香港",
+          "iso2": "",
+          "points": 330,
+          "move": 0
+        },
+        {
+          "rank": 99,
+          "name_cn": "",
+          "name_en": "Harmeet Desai",
+          "code": "IND",
+          "assoc_cn": "印度",
+          "iso2": "in",
+          "points": 330,
+          "move": 0
+        },
+        {
+          "rank": 100,
+          "name_cn": "",
+          "name_en": "Quadri Aruna",
+          "code": "NGR",
+          "assoc_cn": "尼日利亚",
+          "iso2": "ng",
+          "points": 323,
+          "move": 0
+        }
+      ]
+    },
+    "women": {
+      "key": "women",
+      "label": "女子单打",
+      "label_en": "Women's Singles",
+      "players": [
+        {
+          "rank": 1,
+          "name_cn": "孙颖莎",
+          "name_en": "Sun Yingsha",
+          "code": "CHN",
+          "assoc_cn": "中国",
+          "iso2": "cn",
+          "points": 7575,
+          "move": 1
+        },
+        {
+          "rank": 2,
+          "name_cn": "王曼昱",
+          "name_en": "Wang Manyu",
+          "code": "CHN",
+          "assoc_cn": "中国",
+          "iso2": "cn",
+          "points": 7565,
+          "move": -1
+        },
+        {
+          "rank": 3,
+          "name_cn": "",
+          "name_en": "Miwa Harimoto",
+          "code": "JPN",
+          "assoc_cn": "日本",
+          "iso2": "jp",
+          "points": 6709,
+          "move": 0
+        },
+        {
+          "rank": 4,
+          "name_cn": "蒯曼",
+          "name_en": "Kuai Man",
+          "code": "CHN",
+          "assoc_cn": "中国",
+          "iso2": "cn",
+          "points": 5663,
+          "move": 0
+        },
+        {
+          "rank": 5,
+          "name_cn": "王艺迪",
+          "name_en": "Wang Yidi",
+          "code": "CHN",
+          "assoc_cn": "中国",
+          "iso2": "cn",
+          "points": 5647,
+          "move": 0
+        },
+        {
+          "rank": 6,
+          "name_cn": "",
+          "name_en": "Hina Hayata",
+          "code": "JPN",
+          "assoc_cn": "日本",
+          "iso2": "jp",
+          "points": 4810,
+          "move": 0
+        },
+        {
+          "rank": 7,
+          "name_cn": "陈幸同",
+          "name_en": "Chen Xingtong",
+          "code": "CHN",
+          "assoc_cn": "中国",
+          "iso2": "cn",
+          "points": 3865,
+          "move": 0
+        },
+        {
+          "rank": 8,
+          "name_cn": "",
+          "name_en": "Sabine Winter",
+          "code": "GER",
+          "assoc_cn": "德国",
+          "iso2": "de",
+          "points": 3550,
+          "move": 1
+        },
+        {
+          "rank": 9,
+          "name_cn": "朱雨玲",
+          "name_en": "Zhu Yuling",
+          "code": "MAC",
+          "assoc_cn": "中国澳门",
+          "iso2": "",
+          "points": 3500,
+          "move": -1
+        },
+        {
+          "rank": 10,
+          "name_cn": "陈熠",
+          "name_en": "Chen Yi",
+          "code": "CHN",
+          "assoc_cn": "中国",
+          "iso2": "cn",
+          "points": 3495,
+          "move": 0
+        },
+        {
+          "rank": 11,
+          "name_cn": "",
+          "name_en": "Satsuki Odo",
+          "code": "JPN",
+          "assoc_cn": "日本",
+          "iso2": "jp",
+          "points": 3310,
+          "move": 1
+        },
+        {
+          "rank": 12,
+          "name_cn": "",
+          "name_en": "Shin Yubin",
+          "code": "KOR",
+          "assoc_cn": "韩国",
+          "iso2": "kr",
+          "points": 3120,
+          "move": -1
+        },
+        {
+          "rank": 13,
+          "name_cn": "",
+          "name_en": "Hitomi Sato",
+          "code": "JPN",
+          "assoc_cn": "日本",
+          "iso2": "jp",
+          "points": 2880,
+          "move": 0
+        },
+        {
+          "rank": 14,
+          "name_cn": "",
+          "name_en": "Honoka Hashimoto",
+          "code": "JPN",
+          "assoc_cn": "日本",
+          "iso2": "jp",
+          "points": 2554,
+          "move": 1
+        },
+        {
+          "rank": 15,
+          "name_cn": "",
+          "name_en": "Ying Han",
+          "code": "GER",
+          "assoc_cn": "德国",
+          "iso2": "de",
+          "points": 2385,
+          "move": 1
+        },
+        {
+          "rank": 16,
+          "name_cn": "",
+          "name_en": "Joo Cheonhui",
+          "code": "KOR",
+          "assoc_cn": "韩国",
+          "iso2": "kr",
+          "points": 2335,
+          "move": -2
+        },
+        {
+          "rank": 17,
+          "name_cn": "石洵瑶",
+          "name_en": "Shi Xunyao",
+          "code": "CHN",
+          "assoc_cn": "中国",
+          "iso2": "cn",
+          "points": 2215,
+          "move": 0
+        },
+        {
+          "rank": 18,
+          "name_cn": "",
+          "name_en": "Miyu Nagasaki",
+          "code": "JPN",
+          "assoc_cn": "日本",
+          "iso2": "jp",
+          "points": 2070,
+          "move": 0
+        },
+        {
+          "rank": 19,
+          "name_cn": "",
+          "name_en": "Miyuu Kihara",
+          "code": "JPN",
+          "assoc_cn": "日本",
+          "iso2": "jp",
+          "points": 1990,
+          "move": 0
+        },
+        {
+          "rank": 20,
+          "name_cn": "",
+          "name_en": "Adriana Diaz",
+          "code": "PUR",
+          "assoc_cn": "波多黎各",
+          "iso2": "pr",
+          "points": 1907,
+          "move": 0
+        },
+        {
+          "rank": 21,
+          "name_cn": "",
+          "name_en": "Sakura Yokoi",
+          "code": "JPN",
+          "assoc_cn": "日本",
+          "iso2": "jp",
+          "points": 1700,
+          "move": 1
+        },
+        {
+          "rank": 22,
+          "name_cn": "",
+          "name_en": "Hana Goda",
+          "code": "EGY",
+          "assoc_cn": "埃及",
+          "iso2": "eg",
+          "points": 1695,
+          "move": -1
+        },
+        {
+          "rank": 23,
+          "name_cn": "",
+          "name_en": "Bernadette Szocs",
+          "code": "ROU",
+          "assoc_cn": "罗马尼亚",
+          "iso2": "ro",
+          "points": 1655,
+          "move": 0
+        },
+        {
+          "rank": 24,
+          "name_cn": "覃予萱",
+          "name_en": "Qin Yuxuan",
+          "code": "CHN",
+          "assoc_cn": "中国",
+          "iso2": "cn",
+          "points": 1580,
+          "move": 1
+        },
+        {
+          "rank": 25,
+          "name_cn": "",
+          "name_en": "Mima Ito",
+          "code": "JPN",
+          "assoc_cn": "日本",
+          "iso2": "jp",
+          "points": 1560,
+          "move": -1
+        },
+        {
+          "rank": 26,
+          "name_cn": "",
+          "name_en": "Miu Hirano",
+          "code": "JPN",
+          "assoc_cn": "日本",
+          "iso2": "jp",
+          "points": 1525,
+          "move": 0
+        },
+        {
+          "rank": 27,
+          "name_cn": "",
+          "name_en": "Bruna Takahashi",
+          "code": "BRA",
+          "assoc_cn": "巴西",
+          "iso2": "br",
+          "points": 1346,
+          "move": 0
+        },
+        {
+          "rank": 28,
+          "name_cn": "郑怡静",
+          "name_en": "Cheng I-ching",
+          "code": "TPE",
+          "assoc_cn": "中国台北",
+          "iso2": "",
+          "points": 1250,
+          "move": 0
+        },
+        {
+          "rank": 29,
+          "name_cn": "",
+          "name_en": "Nina Mittelham",
+          "code": "GER",
+          "assoc_cn": "德国",
+          "iso2": "de",
+          "points": 1249,
+          "move": 0
+        },
+        {
+          "rank": 30,
+          "name_cn": "",
+          "name_en": "Dina Meshref",
+          "code": "EGY",
+          "assoc_cn": "埃及",
+          "iso2": "eg",
+          "points": 1234,
+          "move": 0
+        },
+        {
+          "rank": 31,
+          "name_cn": "",
+          "name_en": "Kim Nayeong",
+          "code": "KOR",
+          "assoc_cn": "韩国",
+          "iso2": "kr",
+          "points": 1188,
+          "move": 0
+        },
+        {
+          "rank": 32,
+          "name_cn": "",
+          "name_en": "Lily Zhang",
+          "code": "USA",
+          "assoc_cn": "美国",
+          "iso2": "us",
+          "points": 1183,
+          "move": 0
+        },
+        {
+          "rank": 33,
+          "name_cn": "彭郁涵",
+          "name_en": "Peng Yu-han",
+          "code": "TPE",
+          "assoc_cn": "中国台北",
+          "iso2": "",
+          "points": 1067,
+          "move": 0
+        },
+        {
+          "rank": 34,
+          "name_cn": "",
+          "name_en": "Jia Nan Yuan",
+          "code": "FRA",
+          "assoc_cn": "法国",
+          "iso2": "fr",
+          "points": 1052,
+          "move": 0
+        },
+        {
+          "rank": 35,
+          "name_cn": "",
+          "name_en": "Kaho Akae",
+          "code": "JPN",
+          "assoc_cn": "日本",
+          "iso2": "jp",
+          "points": 1000,
+          "move": 2
+        },
+        {
+          "rank": 36,
+          "name_cn": "",
+          "name_en": "Doo Hoi Kem",
+          "code": "HKG",
+          "assoc_cn": "中国香港",
+          "iso2": "",
+          "points": 977,
+          "move": -1
+        },
+        {
+          "rank": 37,
+          "name_cn": "",
+          "name_en": "Elizabeta Samara",
+          "code": "ROU",
+          "assoc_cn": "罗马尼亚",
+          "iso2": "ro",
+          "points": 975,
+          "move": 1
+        },
+        {
+          "rank": 38,
+          "name_cn": "",
+          "name_en": "Anna Hursey",
+          "code": "WAL",
+          "assoc_cn": "威尔士",
+          "iso2": "gb-wls",
+          "points": 966,
+          "move": -2
+        },
+        {
+          "rank": 39,
+          "name_cn": "",
+          "name_en": "Elizabet Abraamian",
+          "code": "RUS",
+          "assoc_cn": "俄罗斯",
+          "iso2": "ru",
+          "points": 965,
+          "move": 0
+        },
+        {
+          "rank": 40,
+          "name_cn": "",
+          "name_en": "Yangzi Liu",
+          "code": "AUS",
+          "assoc_cn": "澳大利亚",
+          "iso2": "au",
+          "points": 935,
+          "move": 1
+        },
+        {
+          "rank": 41,
+          "name_cn": "",
+          "name_en": "Prithika Pavade",
+          "code": "FRA",
+          "assoc_cn": "法国",
+          "iso2": "fr",
+          "points": 928,
+          "move": -1
+        },
+        {
+          "rank": 42,
+          "name_cn": "",
+          "name_en": "Annett Kaufmann",
+          "code": "GER",
+          "assoc_cn": "德国",
+          "iso2": "de",
+          "points": 855,
+          "move": 0
+        },
+        {
+          "rank": 43,
+          "name_cn": "",
+          "name_en": "Sofia Polcanova",
+          "code": "AUT",
+          "assoc_cn": "奥地利",
+          "iso2": "at",
+          "points": 848,
+          "move": 0
+        },
+        {
+          "rank": 44,
+          "name_cn": "",
+          "name_en": "Natalia Bajor",
+          "code": "POL",
+          "assoc_cn": "波兰",
+          "iso2": "pl",
+          "points": 848,
+          "move": 0
+        },
+        {
+          "rank": 45,
+          "name_cn": "",
+          "name_en": "Margaryta Pesotska",
+          "code": "UKR",
+          "assoc_cn": "乌克兰",
+          "iso2": "ua",
+          "points": 834,
+          "move": 0
+        },
+        {
+          "rank": 46,
+          "name_cn": "",
+          "name_en": "Huang Yu-jie",
+          "code": "TPE",
+          "assoc_cn": "中国台北",
+          "iso2": "",
+          "points": 820,
+          "move": 1
+        },
+        {
+          "rank": 47,
+          "name_cn": "叶伊恬",
+          "name_en": "Yeh Yi-tian",
+          "code": "TPE",
+          "assoc_cn": "中国台北",
+          "iso2": "",
+          "points": 799,
+          "move": -1
+        },
+        {
+          "rank": 48,
+          "name_cn": "",
+          "name_en": "Zeng Jian",
+          "code": "SGP",
+          "assoc_cn": "新加坡",
+          "iso2": "sg",
+          "points": 779,
+          "move": 1
+        },
+        {
+          "rank": 49,
+          "name_cn": "",
+          "name_en": "Amy Wang",
+          "code": "USA",
+          "assoc_cn": "美国",
+          "iso2": "us",
+          "points": 680,
+          "move": 1
+        },
+        {
+          "rank": 50,
+          "name_cn": "李昱谆",
+          "name_en": "Li Yu-jhun",
+          "code": "TPE",
+          "assoc_cn": "中国台北",
+          "iso2": "",
+          "points": 670,
+          "move": -2
+        },
+        {
+          "rank": 51,
+          "name_cn": "",
+          "name_en": "Mo Zhang",
+          "code": "CAN",
+          "assoc_cn": "加拿大",
+          "iso2": "ca",
+          "points": 665,
+          "move": 0
+        },
+        {
+          "rank": 52,
+          "name_cn": "简彤娟",
+          "name_en": "Chien Tung-chuan",
+          "code": "TPE",
+          "assoc_cn": "中国台北",
+          "iso2": "",
+          "points": 645,
+          "move": 0
+        },
+        {
+          "rank": 53,
+          "name_cn": "",
+          "name_en": "Lee Eunhye",
+          "code": "KOR",
+          "assoc_cn": "韩国",
+          "iso2": "kr",
+          "points": 630,
+          "move": 1
+        },
+        {
+          "rank": 54,
+          "name_cn": "",
+          "name_en": "Sachi Aoki",
+          "code": "JPN",
+          "assoc_cn": "日本",
+          "iso2": "jp",
+          "points": 605,
+          "move": 1
+        },
+        {
+          "rank": 55,
+          "name_cn": "",
+          "name_en": "Maria Xiao",
+          "code": "ESP",
+          "assoc_cn": "西班牙",
+          "iso2": "es",
+          "points": 605,
+          "move": 1
+        },
+        {
+          "rank": 56,
+          "name_cn": "",
+          "name_en": "Andreea Dragoman",
+          "code": "ROU",
+          "assoc_cn": "罗马尼亚",
+          "iso2": "ro",
+          "points": 600,
+          "move": 1
+        },
+        {
+          "rank": 57,
+          "name_cn": "",
+          "name_en": "Misuzu Takeya",
+          "code": "JPN",
+          "assoc_cn": "日本",
+          "iso2": "jp",
+          "points": 590,
+          "move": 2
+        },
+        {
+          "rank": 58,
+          "name_cn": "",
+          "name_en": "Manika Batra",
+          "code": "IND",
+          "assoc_cn": "印度",
+          "iso2": "in",
+          "points": 572,
+          "move": -5
+        },
+        {
+          "rank": 59,
+          "name_cn": "",
+          "name_en": "Constantina Psihogios",
+          "code": "AUS",
+          "assoc_cn": "澳大利亚",
+          "iso2": "au",
+          "points": 542,
+          "move": 1
+        },
+        {
+          "rank": 60,
+          "name_cn": "",
+          "name_en": "Yang Ha Eun",
+          "code": "KOR",
+          "assoc_cn": "韩国",
+          "iso2": "kr",
+          "points": 539,
+          "move": 1
+        },
+        {
+          "rank": 61,
+          "name_cn": "",
+          "name_en": "Sreeja Akula",
+          "code": "IND",
+          "assoc_cn": "印度",
+          "iso2": "in",
+          "points": 530,
+          "move": -3
+        },
+        {
+          "rank": 62,
+          "name_cn": "",
+          "name_en": "Minhyung Jee",
+          "code": "AUS",
+          "assoc_cn": "澳大利亚",
+          "iso2": "au",
+          "points": 510,
+          "move": 0
+        },
+        {
+          "rank": 63,
+          "name_cn": "",
+          "name_en": "Su Tsz Tung",
+          "code": "HKG",
+          "assoc_cn": "中国香港",
+          "iso2": "",
+          "points": 503,
+          "move": 1
+        },
+        {
+          "rank": 64,
+          "name_cn": "",
+          "name_en": "Saki Shibata",
+          "code": "JPN",
+          "assoc_cn": "日本",
+          "iso2": "jp",
+          "points": 496,
+          "move": 2
+        },
+        {
+          "rank": 65,
+          "name_cn": "",
+          "name_en": "Diya Chitale",
+          "code": "IND",
+          "assoc_cn": "印度",
+          "iso2": "in",
+          "points": 476,
+          "move": 2
+        },
+        {
+          "rank": 66,
+          "name_cn": "",
+          "name_en": "Sally Moyland",
+          "code": "USA",
+          "assoc_cn": "美国",
+          "iso2": "us",
+          "points": 467,
+          "move": 2
+        },
+        {
+          "rank": 67,
+          "name_cn": "",
+          "name_en": "Xiaoxin Yang",
+          "code": "MON",
+          "assoc_cn": "蒙古",
+          "iso2": "mn",
+          "points": 460,
+          "move": 2
+        },
+        {
+          "rank": 68,
+          "name_cn": "",
+          "name_en": "Kim Seongjin",
+          "code": "KOR",
+          "assoc_cn": "韩国",
+          "iso2": "kr",
+          "points": 460,
+          "move": 2
+        },
+        {
+          "rank": 69,
+          "name_cn": "",
+          "name_en": "Jieni Shao",
+          "code": "POR",
+          "assoc_cn": "葡萄牙",
+          "iso2": "pt",
+          "points": 459,
+          "move": 2
+        },
+        {
+          "rank": 70,
+          "name_cn": "",
+          "name_en": "Yashaswini Ghorpade",
+          "code": "IND",
+          "assoc_cn": "印度",
+          "iso2": "in",
+          "points": 456,
+          "move": 6
+        },
+        {
+          "rank": 71,
+          "name_cn": "",
+          "name_en": "Elena Zaharia",
+          "code": "ROU",
+          "assoc_cn": "罗马尼亚",
+          "iso2": "ro",
+          "points": 455,
+          "move": 1
+        },
+        {
+          "rank": 72,
+          "name_cn": "",
+          "name_en": "Charlotte Lutz",
+          "code": "FRA",
+          "assoc_cn": "法国",
+          "iso2": "fr",
+          "points": 453,
+          "move": -7
+        },
+        {
+          "rank": 73,
+          "name_cn": "",
+          "name_en": "Xiaona Shan",
+          "code": "GER",
+          "assoc_cn": "德国",
+          "iso2": "de",
+          "points": 440,
+          "move": -10
+        },
+        {
+          "rank": 74,
+          "name_cn": "",
+          "name_en": "Linda Bergstrom",
+          "code": "SWE",
+          "assoc_cn": "瑞典",
+          "iso2": "se",
+          "points": 438,
+          "move": 0
+        },
+        {
+          "rank": 75,
+          "name_cn": "",
+          "name_en": "Giorgia Piccolin",
+          "code": "ITA",
+          "assoc_cn": "意大利",
+          "iso2": "it",
+          "points": 432,
+          "move": 0
+        },
+        {
+          "rank": 76,
+          "name_cn": "",
+          "name_en": "Yoo Yerin",
+          "code": "KOR",
+          "assoc_cn": "韩国",
+          "iso2": "kr",
+          "points": 425,
+          "move": 1
+        },
+        {
+          "rank": 77,
+          "name_cn": "何卓佳",
+          "name_en": "He Zhuojia",
+          "code": "CHN",
+          "assoc_cn": "中国",
+          "iso2": "cn",
+          "points": 419,
+          "move": -4
+        },
+        {
+          "rank": 78,
+          "name_cn": "",
+          "name_en": "Ser Lin Qian",
+          "code": "SGP",
+          "assoc_cn": "新加坡",
+          "iso2": "sg",
+          "points": 414,
+          "move": 5
+        },
+        {
+          "rank": 79,
+          "name_cn": "",
+          "name_en": "Christina Kallberg",
+          "code": "SWE",
+          "assoc_cn": "瑞典",
+          "iso2": "se",
+          "points": 405,
+          "move": -1
+        },
+        {
+          "rank": 80,
+          "name_cn": "",
+          "name_en": "Yuna Ojio",
+          "code": "JPN",
+          "assoc_cn": "日本",
+          "iso2": "jp",
+          "points": 403,
+          "move": -1
+        },
+        {
+          "rank": 81,
+          "name_cn": "",
+          "name_en": "Tin-tin Ho",
+          "code": "ENG",
+          "assoc_cn": "英格兰",
+          "iso2": "gb-eng",
+          "points": 394,
+          "move": -1
+        },
+        {
+          "rank": 82,
+          "name_cn": "",
+          "name_en": "Tsai Yun-en",
+          "code": "TPE",
+          "assoc_cn": "中国台北",
+          "iso2": "",
+          "points": 392,
+          "move": 0
+        },
+        {
+          "rank": 83,
+          "name_cn": "",
+          "name_en": "Rin Mende",
+          "code": "JPN",
+          "assoc_cn": "日本",
+          "iso2": "jp",
+          "points": 379,
+          "move": 3
+        },
+        {
+          "rank": 84,
+          "name_cn": "",
+          "name_en": "Yuka Kaneyoshi",
+          "code": "JPN",
+          "assoc_cn": "日本",
+          "iso2": "jp",
+          "points": 378,
+          "move": 3
+        },
+        {
+          "rank": 85,
+          "name_cn": "",
+          "name_en": "Hana Arapovic",
+          "code": "CRO",
+          "assoc_cn": "克罗地亚",
+          "iso2": "hr",
+          "points": 378,
+          "move": 3
+        },
+        {
+          "rank": 86,
+          "name_cn": "",
+          "name_en": "Fu Yu",
+          "code": "POR",
+          "assoc_cn": "葡萄牙",
+          "iso2": "pt",
+          "points": 375,
+          "move": -1
+        },
+        {
+          "rank": 87,
+          "name_cn": "",
+          "name_en": "Sarah De Nutte",
+          "code": "LUX",
+          "assoc_cn": "卢森堡",
+          "iso2": "lu",
+          "points": 352,
+          "move": -3
+        },
+        {
+          "rank": 88,
+          "name_cn": "",
+          "name_en": "Jie Li",
+          "code": "NED",
+          "assoc_cn": "荷兰",
+          "iso2": "nl",
+          "points": 347,
+          "move": 5
+        },
+        {
+          "rank": 89,
+          "name_cn": "纵歌曼",
+          "name_en": "Zong Geman",
+          "code": "CHN",
+          "assoc_cn": "中国",
+          "iso2": "cn",
+          "points": 345,
+          "move": 0
+        },
+        {
+          "rank": 90,
+          "name_cn": "",
+          "name_en": "Gaia Monfardini",
+          "code": "ITA",
+          "assoc_cn": "意大利",
+          "iso2": "it",
+          "points": 342,
+          "move": 2
+        },
+        {
+          "rank": 91,
+          "name_cn": "",
+          "name_en": "Lea Rakovac",
+          "code": "CRO",
+          "assoc_cn": "克罗地亚",
+          "iso2": "hr",
+          "points": 335,
+          "move": 3
+        },
+        {
+          "rank": 92,
+          "name_cn": "",
+          "name_en": "Ng Wing Lam",
+          "code": "HKG",
+          "assoc_cn": "中国香港",
+          "iso2": "",
+          "points": 333,
+          "move": -11
+        },
+        {
+          "rank": 93,
+          "name_cn": "",
+          "name_en": "Katarzyna Wegrzyn",
+          "code": "POL",
+          "assoc_cn": "波兰",
+          "iso2": "pl",
+          "points": 331,
+          "move": 3
+        },
+        {
+          "rank": 94,
+          "name_cn": "",
+          "name_en": "Syndrela Das",
+          "code": "IND",
+          "assoc_cn": "印度",
+          "iso2": "in",
+          "points": 306,
+          "move": 4
+        },
+        {
+          "rank": 95,
+          "name_cn": "",
+          "name_en": "Vlada Voronina",
+          "code": "RUS",
+          "assoc_cn": "俄罗斯",
+          "iso2": "ru",
+          "points": 305,
+          "move": 4
+        },
+        {
+          "rank": 96,
+          "name_cn": "",
+          "name_en": "Lee Seungeun",
+          "code": "KOR",
+          "assoc_cn": "韩国",
+          "iso2": "kr",
+          "points": 304,
+          "move": 4
+        },
+        {
+          "rank": 97,
+          "name_cn": "杨屹韵",
+          "name_en": "Yang Yiyun",
+          "code": "CHN",
+          "assoc_cn": "中国",
+          "iso2": "cn",
+          "points": 297,
+          "move": -6
+        },
+        {
+          "rank": 98,
+          "name_cn": "",
+          "name_en": "Asuka Sasao",
+          "code": "JPN",
+          "assoc_cn": "日本",
+          "iso2": "jp",
+          "points": 297,
+          "move": 5
+        },
+        {
+          "rank": 99,
+          "name_cn": "",
+          "name_en": "Ayhika Mukherjee",
+          "code": "IND",
+          "assoc_cn": "印度",
+          "iso2": "in",
+          "points": 289,
+          "move": 7
+        },
+        {
+          "rank": 100,
+          "name_cn": "",
+          "name_en": "Zauresh Akasheva",
+          "code": "KAZ",
+          "assoc_cn": "哈萨克斯坦",
+          "iso2": "kz",
+          "points": 283,
+          "move": 18
+        }
+      ]
+    }
+  }
+}

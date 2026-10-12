@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>{% block title %}乒乓球世界排名{% endblock %} · 桌球视界</title>
+  <meta name="description" content="乒乓球世界排名、对战记录与赛事安排，风格参考中羽在线。" />
+  <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}" />
+</head>
+<body>
+  <header class="site-header">
+    <div class="container header-inner">
+      <a class="brand" href="{{ url_for('rankings') }}">
+        <span class="brand-mark">🏓</span>
+        <span class="brand-name">桌球视界</span>
+        <span class="brand-sub">Table Tennis Hub</span>
+      </a>
+      <nav class="main-nav">
+        <a href="{{ url_for('rankings') }}" class="{{ 'active' if active == 'rankings' }}">世界排名</a>
+        <a href="{{ url_for('matches') }}" class="{{ 'active' if active == 'matches' }}">对战记录</a>
+        <a href="{{ url_for('events') }}" class="{{ 'active' if active == 'events' }}">赛事日历</a>
+        <a href="{{ url_for('schedule') }}" class="{{ 'active' if active == 'schedule' }}">每日赛程</a>
+      </nav>
+    </div>
+  </header>
+
+  <main class="container">
+    {% block content %}{% endblock %}
+  </main>
+
+  <footer class="site-footer">
+    <div class="container">
+      <p>桌球视界 · 一个开放的乒乓球资讯站点 ｜ 世界排名数据来源：{{ data.meta.source if data and data.meta else 'ITTF' }}</p>
+      <p class="muted">本站为演示项目，排名数据仅供参考。</p>
+    </div>
+  </footer>
+
+  <script src="{{ url_for('static', filename='js/app.js') }}"></script>
+</body>
+</html>

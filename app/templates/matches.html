@@ -1,0 +1,260 @@
+{% extends "base.html" %}
+
+{% block title %}对战记录{% endblock %}
+
+{% block content %}
+<section class="matches-page">
+  <div class="page-head">
+    <h1>对战记录</h1>
+    <div class="meta-line">
+      <span class="badge">{{ meta.source if meta else 'ITTF / WTT' }}</span>
+      {% if meta.generated_at %}<span class="muted">生成于 {{ meta.generated_at }}</span>{% endif %}
+    </div>
+    <p class="note">{{ meta.note if meta else '' }}</p>
+  </div>
+
+  <div class="stat-cards" id="statCards">
+    <div class="stat-card"><div class="stat-num" id="statEvents">—</div><div class="stat-label">赛事</div></div>
+    <div class="stat-card"><div class="stat-num" id="statMatches">—</div><div class="stat-label">对阵场次</div></div>
+    <div class="stat-card"><div class="stat-num" id="statRange">—</div><div class="stat-label">时间范围</div></div>
+  </div>
+
+  <div class="filter-bar" id="filterBar" style="display:none">
+    <div class="filter-group">
+      <label>赛事</label>
+      <select id="fEvent"><option value="">全部赛事</option></select>
+    </div>
+    <div class="filter-group">
+      <label>项目</label>
+      <select id="fSub"><option value="">全部项目</option></select>
+    </div>
+    <div class="filter-group">
+      <label>轮次</label>
+      <select id="fRound"><option value="">全部轮次</option></select>
+    </div>
+    <div class="filter-group grow">
+      <label>搜索选手</label>
+      <input id="fSearch" type="text" placeholder="输入选手姓名（中/英）" />
+    </div>
+    <button id="fReset" class="reset-btn">重置</button>
+  </div>
+
+  <div class="result-bar" id="resultBar" style="display:none">
+    <span id="resultCount" class="result-count"></span>
+    <span class="page-size">
+      每页
+      <select id="pageSize">
+        <option>50</option>
+        <option selected>100</option>
+        <option>200</option>
+      </select>
+      条
+    </span>
+  </div>
+
+  <div id="loading" class="loading">正在加载对阵数据 …</div>
+
+  <div class="table-wrap" id="tableWrap" style="display:none">
+    <table class="match-table">
+      <thead>
+        <tr>
+          <th class="c-date">日期</th>
+          <th class="c-event">赛事</th>
+          <th class="c-sub">项目</th>
+          <th class="c-round">轮次</th>
+          <th class="c-player">选手 A</th>
+          <th class="c-score">比分</th>
+          <th class="c-player">选手 B</th>
+          <th class="c-detail"></th>
+        </tr>
+      </thead>
+      <tbody id="matchBody"></tbody>
+    </table>
+  </div>
+
+  <div class="pager" id="pager" style="display:none">
+    <button id="prevPage">← 上一页</button>
+    <span id="pageInfo"></span>
+    <button id="nextPage">下一页 →</button>
+  </div>
+</section>
+
+<script>
+  // 后端注入的协会映射（协会代码 -> {cn, iso2}）
+  const ORG_MAP = {{ org_map|tojson }};
+  const META = {{ meta|tojson }};
+
+  let ALL = [];      // 全部对阵
+  let EVENTS = [];   // 赛事元信息
+  let filtered = []; // 当前筛选结果
+  let page = 1;
+  let pageSize = 100;
+
+  const $ = (id) => document.getElementById(id);
+
+  function flagImg(org) {
+    const m = ORG_MAP[org];
+    if (m && m.iso2) {
+      return '<img class="flag" src="/static/flags/' + m.iso2 + '.svg" alt="' + (m.cn||org) + '" title="' + (m.cn||org) + '"/>';
+    }
+    return '';
+  }
+  function orgCn(org) {
+    const m = ORG_MAP[org];
+    return (m && m.cn) ? m.cn : org;
+  }
+  function playerCell(p) {
+    const cn = p.name_cn || '';
+    const en = p.name_en || '';
+    const main = cn || en;
+    const sub = (cn && en && cn !== en) ? '<span class="p-en">' + en + '</span>' : '';
+    return '<span class="player">' + flagImg(p.org) +
+      '<span class="p-name">' + main + '</span>' + sub +
+      '</span><span class="p-org">' + orgCn(p.org) + '</span>';
+  }
+  function gameScores(a, b) {
+    const n = Math.max(a.length, b.length);
+    let parts = [];
+    for (let i = 0; i < n; i++) {
+      const x = (a[i] !== undefined) ? a[i] : '–';
+      const y = (b[i] !== undefined) ? b[i] : '–';
+      parts.push(x + '-' + y);
+    }
+    return parts.join(' ');
+  }
+
+  function renderMatches() {
+    const body = $('matchBody');
+    body.innerHTML = '';
+    const start = (page - 1) * pageSize;
+    const slice = filtered.slice(start, start + pageSize);
+    for (const m of slice) {
+      const aWin = m.winner_side === 'a';
+      const bWin = m.winner_side === 'b';
+      const tr = document.createElement('tr');
+      tr.innerHTML =
+        '<td class="c-date">' + (m.date || '') + '</td>' +
+        '<td class="c-event" title="' + (m.event_name||'') + '">' + (m.event_name||'') + '</td>' +
+        '<td class="c-sub">' + (m.sub_event||'') + '</td>' +
+        '<td class="c-round">' + (m.round||'') + '</td>' +
+        '<td class="c-player ' + (aWin ? 'winner':'loser') + '">' + playerCell(m.player_a) +
+          (aWin ? ' <span class="win-badge">胜</span>' : '') + '</td>' +
+        '<td class="c-score">' +
+          '<div class="score-main">' + m.games_a + ' : ' + m.games_b + '</div>' +
+          '<div class="score-games">' + gameScores(m.scores_a, m.scores_b) + '</div>' +
+        '</td>' +
+        '<td class="c-player ' + (bWin ? 'winner':'loser') + '">' + playerCell(m.player_b) +
+          (bWin ? ' <span class="win-badge">胜</span>' : '') + '</td>' +
+        '<td class="c-detail"><button class="detail-btn" data-id="' + m.match_id + '">详情</button></td>';
+      body.appendChild(tr);
+
+      const dtr = document.createElement('tr');
+      dtr.className = 'detail-row';
+      dtr.style.display = 'none';
+      dtr.innerHTML = '<td colspan="8"><div class="detail-box">' +
+        '场馆：' + (m.venue||'—') + ' ｜ 球台：' + (m.table||'—') + ' ｜ 用时：' + (m.duration||'—') +
+        ' ｜ 赛制：Best of ' + (m.best_of||'—') + ' ｜ 状态：' + (m.status||'') +
+        '</div></td>';
+      body.appendChild(dtr);
+    }
+    // 绑定详情展开
+    body.querySelectorAll('.detail-btn').forEach(btn => {
+      btn.addEventListener('click', () => {
+        const row = btn.closest('tr').nextElementSibling;
+        if (row && row.classList.contains('detail-row')) {
+          row.style.display = (row.style.display === 'none') ? 'table-row' : 'none';
+        }
+      });
+    });
+    updatePager();
+  }
+
+  function updatePager() {
+    const totalPages = Math.max(1, Math.ceil(filtered.length / pageSize));
+    if (page > totalPages) page = totalPages;
+    $('pageInfo').textContent = '第 ' + page + ' / ' + totalPages + ' 页';
+    $('prevPage').disabled = page <= 1;
+    $('nextPage').disabled = page >= totalPages;
+  }
+
+  function applyFilters() {
+    const ev = $('fEvent').value;
+    const sub = $('fSub').value;
+    const rnd = $('fRound').value;
+    const q = $('fSearch').value.trim().toLowerCase();
+    filtered = ALL.filter(m => {
+      if (ev && String(m.event_id) !== ev) return false;
+      if (sub && m.sub_event !== sub) return false;
+      if (rnd && m.round !== rnd) return false;
+      if (q) {
+        const a = (m.player_a.name_cn + ' ' + m.player_a.name_en + ' ' + m.player_b.name_cn + ' ' + m.player_b.name_en).toLowerCase();
+        if (a.indexOf(q) === -1) return false;
+      }
+      return true;
+    });
+    page = 1;
+    $('resultCount').textContent = '共 ' + filtered.length + ' 场';
+    renderMatches();
+  }
+
+  function populateSelect(sel, values) {
+    values.sort();
+    for (const v of values) {
+      if (!v) continue;
+      const o = document.createElement('option');
+      o.value = v; o.textContent = v;
+      sel.appendChild(o);
+    }
+  }
+
+  function buildUI() {
+    // 赛事下拉（按结束日期倒序展示名称）
+    const evSel = $('fEvent');
+    const evMap = {};
+    EVENTS.forEach(e => { evMap[e.event_id] = e; });
+    EVENTS.slice().sort((a,b)=>(b.end_date||'').localeCompare(a.end_date||'')).forEach(e => {
+      const o = document.createElement('option');
+      o.value = e.event_id;
+      const d = (e.start_date && e.end_date) ? ('（'+e.start_date+' ~ '+e.end_date+'）') : '';
+      o.textContent = (e.event_name||e.event_id) + d;
+      evSel.appendChild(o);
+    });
+    const subs = [...new Set(ALL.map(m => m.sub_event))];
+    const rounds = [...new Set(ALL.map(m => m.round))];
+    populateSelect($('fSub'), subs);
+    populateSelect($('fRound'), rounds);
+
+    $('statEvents').textContent = EVENTS.length;
+    $('statMatches').textContent = ALL.length;
+    const dates = ALL.map(m => m.date).filter(Boolean).sort();
+    $('statRange').textContent = dates.length ? (dates[0].slice(0,10) + ' ~ ' + dates[dates.length-1].slice(0,10)) : '—';
+
+    ['fEvent','fSub','fRound'].forEach(id => $(id).addEventListener('change', applyFilters));
+    $('fSearch').addEventListener('input', applyFilters);
+    $('pageSize').addEventListener('change', () => { pageSize = parseInt($('pageSize').value,10); page=1; renderMatches(); });
+    $('prevPage').addEventListener('click', () => { if (page>1){page--; renderMatches();} });
+    $('nextPage').addEventListener('click', () => { page++; renderMatches(); });
+    $('fReset').addEventListener('click', () => {
+      $('fEvent').value=''; $('fSub').value=''; $('fRound').value=''; $('fSearch').value=''; applyFilters();
+    });
+
+    $('loading').style.display='none';
+    $('filterBar').style.display='flex';
+    $('resultBar').style.display='flex';
+    $('tableWrap').style.display='block';
+    $('pager').style.display='flex';
+    applyFilters();
+  }
+
+  fetch('/api/matches')
+    .then(r => r.json())
+    .then(data => {
+      ALL = data.matches || [];
+      EVENTS = data.events || [];
+      buildUI();
+    })
+    .catch(err => {
+      $('loading').textContent = '数据加载失败：' + err;
+    });
+</script>
+{% endblock %}
